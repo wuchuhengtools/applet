@@ -8,4 +8,5 @@ class Index
         dump(controller_url('hasHost'));
         dump(function_url('hasHost'));
     }
+
 }

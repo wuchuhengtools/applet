@@ -17,7 +17,7 @@ class ExceptionHandle extends Handle
         if($e instanceof BaseException){
             $this->code = $e->code;
             $this->msg = $e->msg;
-            $this->errrorCode = $e->errorCode;
+            $this->errorCode = $e->errorCode;
         }else{
             if(Config::get("app_debug")){
                 return parent::render($e); //返回tp5内置异常,用于服务器调试用。
@@ -32,6 +32,7 @@ class ExceptionHandle extends Handle
         $result =  [
             "msg" => $this->msg,
             "code" => $this->code,
+            "errorCode" => $this->errorCode,
             "requestURL" => $url
         ];
        return json($result,$this->code);

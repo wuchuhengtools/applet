@@ -47,8 +47,8 @@ abstract class Rest
             // 资源类型非法 则用默认资源类型访问
             $this->type = $this->restDefaultType;
         } else {
-            $this->type = $ext;
-        }
+        $this->type = $ext;
+    }
         // 请求方式检测
         $method = strtolower($request->method());
         if (!preg_match('/(' . $this->restMethodList . ')$/i', $method)) {

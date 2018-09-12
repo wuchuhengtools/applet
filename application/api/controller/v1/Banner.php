@@ -19,15 +19,9 @@ class Banner extends Controller
     {
         //AOP面向切面编程，统一的检查机制
         (new IDMustBePostiveInt)->goCheck();
-        $result = BannerModel::get(1,['BannerItem','BannerItem.Image' ]);
-
-        return json($result);
         $banner = BannerModel::getBannerById($id);
-        if(!$result){
-            throw new MissException();
-        }
-        return $result;
-        return json($result);
+        if(!$banner) throw new MissException();
+        return $banner;
     }
 
 
