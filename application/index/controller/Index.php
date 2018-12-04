@@ -1,12 +1,12 @@
 <?php
 namespace app\index\controller;
 use think\facade\Config;
-class Index
+use think\Controller;
+class Index extends Controller
 {
     public function index()
     {
-        dump(controller_url('hasHost'));
-        dump(function_url('hasHost'));
+        return  $this->fetch();
     }
 
 }
