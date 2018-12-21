@@ -6,7 +6,17 @@ use think\Model;
 
 class BannerItem extends Model
 {
-    protected $hidden = ['id','delete_time','update_time'];
+    //隐藏字段
+    protected $hidden = [
+        'id',
+        'img_id',
+        'delete_time',
+        'from',
+        'banner_id',
+        'update_time'
+    ];
+
+
     public function Image() {
          return $this->hasOne("Image","id","img_id");
         //相对关联

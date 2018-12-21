@@ -20,7 +20,6 @@ class Banner extends Controller
         //AOP面向切面编程，统一的检查机制
         (new IDMustBePostiveInt)->goCheck();
         $banner = BannerModel::getBannerById($id);
-        dump($banner->toArray());exit;
         if(!$banner) throw new MissException();
         return $banner;
     }
