@@ -3,8 +3,12 @@ namespace app\api\model;
 
 class Theme extends Base
 {
-
-    protected $hidden = ['delete_time','update_time','topic_img_id','head_img_id'];
+    protected $hidden = [
+        'delete_time',
+        'update_time',
+        'topic_img_id',
+        'head_img_id'
+    ];
 
 
     /**
@@ -15,7 +19,7 @@ class Theme extends Base
      */
     public function topicImg()
     {
-        return $this->belongsTo('Image','topic_img_id','id');
+        return $this->belongsTo('Image', 'topic_img_id', 'id');
     }
 
 
@@ -27,7 +31,7 @@ class Theme extends Base
      */
     public function headImg()
     {
-        return $this->belongsTo('Image','head_img_id','id');
+        return $this->belongsTo('Image', 'head_img_id', 'id');
     }
 
 

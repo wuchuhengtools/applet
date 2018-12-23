@@ -22,6 +22,7 @@ class Banner extends Controller
         $banner = BannerModel::getBannerById($id);
         if (!$banner) throw new MissException();
         return $banner;
+        echo 
     }
 
 

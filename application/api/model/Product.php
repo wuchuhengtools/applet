@@ -21,5 +21,16 @@ class Product extends Base
     }
 
 
+    /**
+     * @info  获取最新产品
+     *
+     * @param    int     $count    限定数量
+     * @return   project           产品数据对象
+     */
+    public static function getMostRecent($count)
+    {
+
+
+    }
 
 }
