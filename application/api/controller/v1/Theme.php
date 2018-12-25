@@ -16,7 +16,7 @@ class Theme extends Controller
     {
         (new IDConnection)->goCheck(); //参数验证线
         $result  = ThemeModel::getThemeByIds(input('ids/s'));
-        if(!$result)throw new ThemeException();
+        if($result->isEmpty())throw new ThemeException();
         return $result;
     }
 

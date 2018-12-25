@@ -29,8 +29,11 @@ class Product extends Base
      */
     public static function getMostRecent($count)
     {
-
-
+        return self::name('product')
+            ->limit($count)
+            ->order('update_time desc')
+            ->select()
+            ->hidden(['summary']);
     }
 
 }
