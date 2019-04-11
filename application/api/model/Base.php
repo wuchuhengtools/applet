@@ -4,7 +4,7 @@ namespace app\api\model;
 
 use think\Model;
 
-class Base extends Model
+class base extends Model
 {
 
     /**
@@ -15,7 +15,6 @@ class Base extends Model
      */
     protected function prefixImgUrl($value,$data)
     {
-
         if($data['from'] === 2) //网络图片，这是绝对路径，不需要修改
             return $value;
         else

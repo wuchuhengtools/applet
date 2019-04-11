@@ -6,7 +6,10 @@ class Index extends Controller
 {
     public function index()
     {
-        return  $this->fetch();
+
+        $test = 1;
+        $test;
+            phpinfo();
     }
 
 }

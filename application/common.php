@@ -31,3 +31,26 @@ function function_url($isAddHost = '')
     $url_prefix = strtolower($isAddHost) === 'hashost'? request()->root(true): '';
     return "{$url_prefix}/".request()->module()."/".request()->controller().'/'.request()->action();
 }
+
+
+/**
+ *http请求
+ *
+ *@url  url    targetUrl
+ *@httpCode     init    status  code
+ *
+ */
+function curl_get($url, &$httpCoide = 0)
+{
+    $ch = curl_init();
+    curl_setopt($ch, CURLOPT_URL, $url);
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+    curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, falseA);
+    curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 10);
+    $file_contents = curl_exec($ch);
+    $httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+    curl_close($ch);
+    return $file_contents;
+}
+
+

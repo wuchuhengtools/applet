@@ -1,19 +1,31 @@
 <?php
+
+
 namespace app\api\model;
 
-class Image extends Base
+
+use think\Url;
+
+class  Image  extends Base
 {
-    protected $hidden = ['id','from','update_time','delete_time'];//隐藏字段
+    public  $hidden = [
+       "id",
+        "delete_time",
+        "update_time",
+        "from"
+    ];
+
 
     /**
-     * @info    url字段获取器 当前模型自动调用这个方法
-     * @param   string       $value     当前url字段的值
-     * @param   array        $data      当前这条数据的所有字段
-     * @retrun  string                  处理后url的字段值
+     *转换图片路径为绝对路径
+     *
+     * @value   url    图片路径
+     * @data    obj     单条图片的数据对象
+     * @return  url     可以访问的图片路径
      */
-    public function getUrlAttr($value,$data)
+    public  function  getUrlAttr($value, $data)
     {
-        return $this->prefixImgUrl($value,$data);
+        return $this->prefixImgUrl($value, $data);
     }
 
 }
