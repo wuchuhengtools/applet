@@ -8,6 +8,7 @@ use app\api\model\Product as ProductModel;
 use app\lib\exception\ProductException;
 use app\api\validate\IDMustBePostiveInt;
 
+
 class Product extends Controller
 {
     /**
@@ -47,4 +48,19 @@ class Product extends Controller
             return $isProducts;
     }
 
+
+    /**
+     * 获取单个商品
+     *
+     *
+     */
+    public  function getOne ($id)
+    {
+        (new IDMustBePostiveInt() ) ->gocheck();
+        $hasProduct = (new ProductModel())->productDetail($id);
+        if (!$hasProduct) 
+            throw new  ProductException();
+        return $hasProduct;
+    }
 }
+

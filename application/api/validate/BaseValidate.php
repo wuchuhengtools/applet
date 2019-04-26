@@ -17,7 +17,7 @@ class BaseValidate extends Validate
         $result  = $this->batch()->check($params);
         if(!$result){
             $e = new ParametException([
-                'code' => 4000,
+                'code' => 400,
                 'msg'  => $this->error,
                 'errorCodce' => 10000
             ]);

@@ -4,6 +4,9 @@ return [
     // | 应用设置
     // +----------------------------------------------------------------------
     // 默认Host地址
+    'app_id'     => 'wx14566fb63d6379a4',
+    'app_scret'  => '6969b2c7e6cb7f1439e9fef17a483b01',
+    'login_url'  => 'https://api.weixin.qq.com/sns/jscode2session?appid=%s&secret=%s&js_code=%s&grant_type=authorization_code',
 
     'app_host'               => '',
     // 应用调试模式
@@ -188,7 +191,7 @@ return [
 
     'cache'                  => [
         // 驱动方式
-        'type'   => 'Test',//'File',
+        'type'   => 'File',
         // 缓存保存目录
         'path'   => CACHE_PATH,
         // 缓存前缀

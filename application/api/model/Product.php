@@ -29,7 +29,29 @@ class Product extends Base
         return $this->prefixImgUrl($value, $data);
     }
 
+    
 
+    /**
+     *关联商品详情
+     *
+     */
+    public  function propertise()
+    {
+        return  $this->hasMany('ProductProperty', 'product_id', 'id');
+    }
+
+
+
+    /**
+     *关联商品详情图
+     *
+     */
+    public  function imgs ()
+    {
+        return  $this->hasMany('ProductImage', 'product_id', 'id');
+    }     
+
+    
     /**
      *获取最新商品
      *
@@ -55,5 +77,21 @@ class Product extends Base
         $isProducts = self::where('category_id', '=', $categoryID)->select();
         return $isProducts;
     }
-
+    
+    
+   /**
+     * 获取商品详情
+     *
+     *  @id     int     商品id 
+     *  @return obj     
+     */ 
+    public function productDetail(int $id)
+    {
+        return self::with(['imgs'=>function($query){
+                $query->with('imgUrl')->order('order asc'); 
+            }])
+            ->with(['propertise'])
+            ->where('id', '=', $id)
+            ->find();
+    }
 }

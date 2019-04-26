@@ -21,8 +21,10 @@ class Token extends Controller
     public function getToken($code='')
     {
         (new TokenGet())->goCheck();
-        $token = (new UserToken())->get($code);
-        return $token;
+        $token = (new UserToken($code))->get();
+        return [
+            'token'  => $token
+        ];
     }
 
 }
